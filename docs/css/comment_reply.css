@@ -1,0 +1,184 @@
+#comment-block .comment-list li .comment-box .input-block{
+    width: 450px;
+    height: 290px;
+    margin-top: 70px;
+}
+
+#comment-block .comment-list li .comment-box .input-block 
+.input-area{
+    width: 430px;
+    height: 285px;
+}
+
+#comment-block .comment-list li .comment-box .input-block 
+.input-area .nickname{
+    width: 158px;
+    height: 28px;
+}
+
+#comment-block .comment-list li .comment-box .input-block 
+.input-area .email{
+    width: 228px;
+    height: 28px;
+}
+
+#comment-block .comment-list li .comment-box .input-block 
+.input-area .text-block{
+    width: 430px;
+    height: 225px;
+}
+
+#comment-block .comment-list li .comment-box .input-block 
+.input-area .cancle{
+    float: right;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#comment-block .comment-list li .comment-box .input-block 
+.input-area .cancle:hover{
+    color: #e9546b;
+}
+
+#comment-block .comment-list li .comment-box .input-block 
+.button-area .commit{
+    text-align: center;
+    line-height: unset;
+    height: 24px;
+    margin-top: 1px;
+}
+
+/* child list reply input */
+/****************************************/
+#comment-block .comment-list li .child-list .comment-box .input-block{
+    width: 400px;
+    height: 290px;
+    margin-top: 60px;
+}
+
+#comment-block .comment-list li .child-list .comment-box .input-block 
+.input-area{
+    width: 380px;
+    height: 285px;
+}
+
+#comment-block .comment-list li .child-list .comment-box .input-block 
+.input-area .nickname{
+    width: 158px;
+    height: 26px;
+}
+
+#comment-block .comment-list li .child-list .comment-box .input-block 
+.input-area .email{
+    width: 208px;
+    height: 26px;
+}
+
+#comment-block .comment-list li .child-list .comment-box .input-block 
+.input-area .text-block{
+    width: 380px;
+    height: 225px;
+}
+
+#comment-block .comment-list li .child-list .comment-box .input-block 
+.input-area .cancle{
+    float: right;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#comment-block .comment-list li .child-list .comment-box .input-block 
+.input-area .cancle:hover{
+    color: #e9546b;
+}
+
+#comment-block .comment-list li .child-list .comment-box .input-block 
+.button-area .commit{
+    text-align: center;
+    line-height: unset;
+    height: 24px;
+    margin-top: 1px;
+}
+/****************************************/
+
+/* reply style */
+#comment-block .comment-list .comment-box .cbox-head .reply{
+    float: right;
+    margin-left: 14px;
+    position: relative;
+    top: 2px;
+    color: #e9546b;
+    cursor: pointer;
+    -webkit-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+}
+
+#comment-block .comment-list .comment-box .cbox-head
+.reply:hover{
+    color: #03658c;
+}
+/******************************/
+
+#comment-block .comment-list .child-list::before,
+#comment-block .comment-list .child-list::after{
+    display: none;
+}
+
+#comment-block .comment-list .child-list li::before{
+    content: '';
+    width: 56px;
+    height: 2px;
+    background: #c7cacb;
+    position: absolute;
+    top: 24px;
+    left: 28px;
+}
+
+#comment-block .comment-list .child-list .avatar{
+    width: 44px;
+    height: 44px;
+    margin-left: 75px;
+    margin-bottom: 14px;
+}
+
+#comment-block .comment-list .child-list .comment-box{
+    width: 405px;
+}
+
+#comment-block .comment-list .child-list .comment-box
+.cbox-head{
+    padding: 6px 8px;
+}
+
+#comment-block .comment-list .child-list .comment-box
+.cbox-head .cbauthor-name{
+    font-size: 12px;
+}
+
+#comment-block .comment-list .child-list .comment-box
+.cbox-head span{
+    font-size: 12px;
+}
+
+#comment-block .comment-list .child-list .comment-box
+.cbox-head .reply{
+    float: right;
+    margin-left: 14px;
+    position: relative;
+    top: 2px;
+    color: #e9546b;
+    cursor: pointer;
+    -webkit-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+}
+
+#comment-block .comment-list .child-list .comment-box
+.cbox-head .reply:hover{
+    color: #03658c;
+}
+
+#comment-block .comment-list .child-list .comment-box{
+    font-size: 14px;
+}

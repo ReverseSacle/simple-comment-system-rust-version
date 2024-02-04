@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/comments.css">
+    <link rel="stylesheet" href="./css/comment_reply.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/crypto-js@4.2.0/core.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/crypto-js@4.2.0/sha256.js"></script>
+    <script type="text/javascript" src="./js/comments.js"></script>
+</head>
+<body>
+    <div id="comment-block">
+        <div class="input-block">
+            <div class="input-area clearfix">
+                <input type="text" class="nickname" maxlength="19" placeholder=" nickname(1~19个字符)">
+                <input type="email" class="email" maxlength="44" placeholder=" email(8~44字符)">
+                <textarea class="text-block" cols="50" placeholder=" "></textarea>
+                <div class="button-area clearfix">
+                    <button type="button" class="commit">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
