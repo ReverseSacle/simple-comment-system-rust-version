@@ -1,4 +1,4 @@
-测试环境 - Linux(CentOS7.9)
+测试环境(虚拟机) - Linux(CentOS7.9)
 
 ## 目录结构
 
@@ -132,7 +132,7 @@ SHOW DATABASES;
 
 运行命令 - `cargo run`
 
-监听任意地址的80端口，即监听HTTP请求。
+监听当前虚拟机地址的80端口，允许任意接入地址，即监听HTTP请求。
 
 浏览器中输入`http://虚拟主机ip地址/index.html`
 
