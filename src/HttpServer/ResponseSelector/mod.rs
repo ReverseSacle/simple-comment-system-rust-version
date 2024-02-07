@@ -283,6 +283,8 @@ fn DatabaseQuery(mut stream: &mut TcpStream,has_query: bool,query: &str,request_
 	if has_query
 	{
 		let file_type = "text/plain";
+		let mut buf = String::new();
+
 		match query.to_uppercase().as_str()
 		{
 			"COUNT" => {
@@ -290,33 +292,21 @@ fn DatabaseQuery(mut stream: &mut TcpStream,has_query: bool,query: &str,request_
 					"HttpServer::ResponseSelector::DatabaseQuery() => \
 					query{{COUNT}}"
 				);
-				Response2xx::Response200(
-					&mut stream,
-					&file_type,
-					database_table.parent_record_count().as_str()
-				);
+				buf.push_str(&database_table.parent_record_count());
 			},
 			"PARENT" => {
 				println!(
 					"HttpServer::ResponseSelector::DatabaseQuery() => \
 					query{{PARENT}}"
 				);
-				Response2xx::Response200(
-					&mut stream,
-					&file_type,
-					database_table.get_parent_record().as_str()
-				);
+				buf.push_str(&database_table.get_parent_record());
 			},
 			"REPLY" => {
 				println!(
 					"HttpServer::ResponseSelector::DatabaseQuery() => \
 					query{{REPLY}}"
 				);
-				Response2xx::Response200(
-					&mut stream,
-					&file_type,
-					database_table.get_child_record().as_str()
-				);
+				buf.push_str(&database_table.get_child_record());
 			},
 			"INSERT" => {
 				println!(
@@ -338,6 +328,11 @@ fn DatabaseQuery(mut stream: &mut TcpStream,has_query: bool,query: &str,request_
 				Response4xx::Response400(&mut stream);
 			}
 		}
+		Response2xx::Response200(
+			&mut stream,
+			&file_type,
+			&buf.into_bytes()
+		);
 	}
 	println!(
 		"HttpServer::ResponseSelector::DatabaseQuery() => Done"
@@ -366,9 +361,8 @@ fn FileQuery(mut stream: &mut TcpStream,path: &str)
 
 	let mut file = file.unwrap();
 	let mut file_type = String::new();
-	let mut buf = String::new();
+	let mut buf = Vec::new();
 		
-	file.read_to_string(&mut buf).unwrap();
 	match RequestType::GetRequestFileType(&path)
 	{
 		RequestFileType::HTML => file_type.push_str("text/html"),
@@ -378,6 +372,8 @@ fn FileQuery(mut stream: &mut TcpStream,path: &str)
 		RequestFileType::WASM => file_type.push_str("application/wasm"),
 		_ => file_type.push_str("text/plain")
 	}
+	file.read_to_end(&mut buf).unwrap();
+
 	Response2xx::Response200(&mut stream,&file_type,&buf);			
 	println!("HttpServer::ResponseSelector::FileQuery() => Done");
 }

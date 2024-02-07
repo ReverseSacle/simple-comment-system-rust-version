@@ -27,21 +27,24 @@ pub fn Response201(stream: &mut TcpStream)
 	);
 }
 
-pub fn Response200(stream: &mut TcpStream,file_type: &str,body_buf: &str)
+pub fn Response200(stream: &mut TcpStream,file_type: &str,
+file_content: &Vec<u8>)
 {
 	println!(
 		"HttpServer::ResponseSelector::Response200() => ..."
 	);
 	let mut buf = String::new();
+	let mut binary_buf = Vec::new();
 
 	buf.push_str("HTTP/1.0 200 OK\r\n");
-	buf.push_str("Server: Linux\r\n");
 	buf.push_str("Connection: Close\r\n");
 	buf.push_str(&format!("Content-Type: {}\r\n",file_type));
-	buf.push_str(&format!("Content-Length: {}\r\n\r\n",body_buf.len()));
-	buf.push_str(&body_buf);
+	buf.push_str(&format!("Content-Length: {}\r\n\r\n",file_content.len()));
 
-	stream.write_all(buf.as_bytes()).unwrap();
+	binary_buf.extend(buf.as_bytes());
+	binary_buf.extend(file_content);
+
+	stream.write_all(&binary_buf).unwrap();
 	stream.flush().unwrap();
 	println!(
 		"HttpServer::ResponseSelector::Response200() => Done"
